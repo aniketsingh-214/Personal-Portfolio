@@ -24,24 +24,33 @@ export const Contact = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonText("Sending...");
-    let response = await fetch("https://personal-portfolio-yruq.vercel.app/contact", {
+  e.preventDefault();
+  setButtonText("Sending...");
+  try {
+    const response = await fetch("https://personal-portfolio-yruq.vercel.app/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(formDetails),
     });
+
     setButtonText("Send");
-    let result = await response.json();
+
+    const result = await response.json();
     setFormDetails(formInitialDetails);
+
     if (result.code === 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
+      setStatus({ success: true, message: 'Message sent successfully' });
     } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+      setStatus({ success: false, message: 'Something went wrong, please try again later.' });
     }
-  };
+  } catch (error) {
+    setButtonText("Send");
+    setStatus({ success: false, message: 'Network error. Please try again later.' });
+    console.error("Email send error:", error);
+  }
+};
 
   return (
     <section className="contact" id="connect">
