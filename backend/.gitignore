@@ -28,3 +28,4 @@ Thumbs.db
 
 # Optional: lockfiles
 package-lock.json
+.vercel
