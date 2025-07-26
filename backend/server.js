@@ -8,7 +8,7 @@ const nodemailer = require("nodemailer");
 const app = express();
 app.use(
   cors({
-    origin: "https://personal-portfolio-214.vercel.app/", 
+    origin: "https://personal-portfolio-214.vercel.app", 
     methods: ["POST", "GET"],
   })
 );
