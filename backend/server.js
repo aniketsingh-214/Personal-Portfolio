@@ -6,7 +6,12 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://personal-portfolio-214.vercel.app/", 
+    methods: ["POST", "GET"],
+  })
+);
 app.use(express.json());
 app.use("/", router);
 
