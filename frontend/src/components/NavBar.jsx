@@ -37,7 +37,14 @@ export const NavBar = () => {
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
-            <img src={logo} alt="Logo" />
+            <img
+  src="https://t4.ftcdn.net/jpg/05/54/85/47/360_F_554854785_51cLgZpLQixPvUt3qRvMtvYoEDOCGev5.jpg"
+  alt="Logo"
+  width={120}
+  height={120}
+  style={{ objectFit: "contain" }}
+/>
+
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
